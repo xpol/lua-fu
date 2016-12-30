@@ -20,7 +20,6 @@ branches:
     - master
 
 before_install:
-  # TODO: move these commands to a online script for easy reuse.
   - git clone --depth 1 https://github.com/cehoffman/luaenv.git ~/.luaenv
   - git clone --depth 1 https://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
   - git clone --depth 1 https://github.com/xpol/luaenv-luarocks.git ~/.luaenv/plugins/luaenv-luarocks
