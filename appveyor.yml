@@ -13,16 +13,19 @@ environment:
 install:
   - appveyor DownloadFile https://dl.bintray.com/xpol/luavm/LuaVM-0.4.0-vs2015-x64.exe -FileName LuaVM-vs2015-x64.exe
   - LuaVM-vs2015-x64.exe /verysilent
-  - luavm use
+  - set PATH=%LocalAppData%\LuaVM;%PATH%
 
 before_build:
-- luarocks install luafilesystem
+  - luavm use %LUA_VER%
+  - where luavm
+  - where luarocks
+  - luarocks install luafilesystem
 
 build_script:
-- luarocks make
+  - luarocks make
 
 before_test:
-- luarocks install busted
+  - luarocks install busted
 
 test_script:
-- busted
+  - busted
