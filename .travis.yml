@@ -1,0 +1,34 @@
+language: cpp
+
+sudo: false
+
+env:
+  global:
+    - LUAROCKS=2.4.1
+  matrix:
+    - LUA=lua5.1
+    - LUA=lua5.2
+    - LUA=lua5.3
+    - LUA=luajit2.0
+    - LUA=luajit2.1
+
+branches:
+  only:
+    - master
+
+before_install:
+  - source .scripts/setenv_lua.sh
+  - luarocks install luafilesystem
+  - luarocks install busted
+
+install:
+  - luarocks make
+
+# Run tests
+script:
+  - busted
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
