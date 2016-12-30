@@ -12,7 +12,7 @@ end
 local helper = {}
 function helper.mkdirs(p)
   if isWindows then
-    os.execute('md '..p)
+    os.execute('md '..p:gsub('/', '\\'))
   else
     os.execute('mkdir -p '..p)
   end
@@ -20,7 +20,7 @@ end
 
 function helper.rmdirs(p)
   if isWindows then
-    os.execute('rd /Q /S '..p)
+    os.execute('rd /Q /S '..p:gsub('/', '\\'))
   else
     os.execute('rm -rf '..p)
   end
