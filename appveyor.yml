@@ -17,8 +17,6 @@ install:
 
 before_build:
   - luavm use %LUA_VER%
-  - where luavm
-  - where luarocks
   - luarocks install luafilesystem
 
 build_script:
