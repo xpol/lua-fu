@@ -10,12 +10,9 @@ environment:
   - LUA_VER: luajit-2.0
   - LUA_VER: luajit-2.1
 
-cache:
-  - c:\lua -> appveyor.yml
-
 install:
-  - appveyor DownloadFile https://dl.bintray.com/xpol/luavm/LuaVM-0.4.0-vs2015-x64.exe -FileName c:\lua\LuaVM-vs2015-x64.exe
-  -  c:\lua\LuaVM-vs2015-x64.exe /verysilent
+  - appveyor DownloadFile https://dl.bintray.com/xpol/luavm/LuaVM-0.4.0-vs2015-x64.exe -FileName LuaVM-vs2015-x64.exe
+  - LuaVM-vs2015-x64.exe /verysilent
   - luavm use
 
 before_build:
